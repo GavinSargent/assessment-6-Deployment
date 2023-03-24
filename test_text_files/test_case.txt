@@ -1,0 +1,16 @@
+TEST CASE 354 (under TEST PLAN 5)
+
+Description:
+
+Clicking "Draw" button should reveal 5 different, random robot cards
+
+Steps:
+
+1. Open webapp from localhost at port 4000 (This will change when the app is deployed) using any web browser.
+The page with "Duel Duo" at the top should be shown
+
+2. Click the button that says "Draw" located in the general center of the page, under the wins and loses.
+
+Post conditions: 
+
+Five different, random robot cards should appear where the draw button was.

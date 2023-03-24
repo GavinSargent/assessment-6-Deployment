@@ -1,0 +1,17 @@
+TEST CASE 265 (under TEST PLAN 4)
+
+Description:
+
+Clicking the "Add to Duo" button located on each robot card should add the card to the players deck titled "Your Duo"
+
+Steps:
+
+1. Open the webapp with localhost at port 4000 (This will change when the app is deployed) using any web browser, the page with "Duel Duo" at the top should be shown
+
+2. Left click "Draw" button located in the center of the screen
+
+3. Left click "Add to Duo" button located at the bottom of one of the robot cards
+
+Post Conditions:
+
+The card should then appear below the remaining cards in the section titled "Your Duo", none of the card information/stats should change.

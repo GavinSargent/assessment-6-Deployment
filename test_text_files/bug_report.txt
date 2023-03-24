@@ -1,0 +1,30 @@
+BUG REPORT for TEST CASE 100
+
+March 24, 2023
+
+Description
+
+Clicking the "See All Bots" button does nothing
+
+Steps to Reproduce:
+
+1. Open webapp at localhost at port 4000 with Chrome browser
+
+2. Move cursor to "See All Bots" button located at the center top of the page
+
+3. Click "See All Bots" button
+
+Expected Results:
+
+All nine of the robot cards should be revealed 
+
+Actual Results:
+
+No changes on the webpage. 
+
+Error message: "GET http://localhost:4000/api/robots 400 Bad Request" appears in console
+
+Environment:
+
+-Chrome Version 111.0.5563.64 (Official Build) (arm64) 
+-MacOs Ventura 13.2.1
