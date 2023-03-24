@@ -7,8 +7,20 @@ app.use(express.json())
 
 app.use(express.static(`${__dirname}/public`))
 
+// include and initialize the rollbar library with your access token
+var Rollbar = require('rollbar')
+var rollbar = new Rollbar({
+  accessToken: '80d506658f584d599decca848a298672',
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+})
+
+// record a generic message and send it to Rollbar
+rollbar.log('Hello world!')
+
 app.get('/api/robots', (req, res) => {
     try {
+        rollbar.info('Bots were sent to be displayed')
         res.status(200).send(botsArr)
     } catch (error) {
         console.log('ERROR GETTING BOTS', error)
@@ -21,9 +33,11 @@ app.get('/api/robots/five', (req, res) => {
         let shuffled = shuffleArray(bots)
         let choices = shuffled.slice(0, 5)
         let compDuo = shuffled.slice(6, 8)
+        rollbar.info('Five random bots were sent to be displayed')
         res.status(200).send({choices, compDuo})
     } catch (error) {
         console.log('ERROR GETTING FIVE BOTS', error)
+        rollbar.error(error)
         res.sendStatus(400)
     }
 })
@@ -61,9 +75,11 @@ app.post('/api/duel', (req, res) => {
 
 app.get('/api/player', (req, res) => {
     try {
+        rollbar.info('Player record sent')
         res.status(200).send(playerRecord)
     } catch (error) {
         console.log('ERROR GETTING PLAYER STATS', error)
+        rollbar.critical('ERROR GETTING PLAYER STATS')
         res.sendStatus(400)
     }
 })
